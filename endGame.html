@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		
+		<script src="js/easeljs-0.8.0.min.js"></script>
+		<script src="js/tweenjs-0.6.0.min.js"></script>
+		<script type="text/javascript" src="js/CSSPlugin.js"></script>
+		<script src="js/script.js"></script>
+		<!--<link href='http://fonts.googleapis.com/css?family=Raleway|Audiowide' rel='stylesheet' type='text/css'> -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		<script src="js/anijs-min.js"></script> 
+		<link rel="stylesheet" type="text/css" href="animate.css" />
+	
+	</head>
+	<body onload="scriptFunction()">
+	<div id="wrapperIndex">
+		<div id="parentContainer" >
+			<div id="playerSelector">
+				<div id="winImage">
+				</div>
+				<div id="rightMenu">
+					<span id="WinnerInfo"> </span><br />
+					<input type="button" name="RestartGame" id="RestartGame" class="ellipticalButton" alt="Restart" value="Play Again">
+					<input type="button" name="Quit" id="Quit" class="ellipticalButton" alt="ReturnToHome" value="Back to Menu"  >
+				</div>
+				<div id="selectorFooter">
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var queryString = new Array();
+		if(queryString.length === 0){
+			if (window.location.search.split('?').length > 1){
+				var params = window.location.search.split('?')[1].split('&');
+				for (var i=0;i<params.length;i++){
+					var key = params[i].split('=')[0];
+					var value = decodeURIComponent(params[i].split('=')[1]);
+					queryString[key]=value;
+				}
+			}
+		}
+		document.getElementById("WinnerInfo").innerHTML = "Player"+queryString["winId"]+" wins!";
+		
+		var img = document.createElement("img");
+		img.setAttribute("src","images/dice_"+queryString["winId"]+".gif")
+		img.setAttribute("class","winAnimation");		
+		var element = document.getElementById("winImage");
+		element.appendChild(img);
+		$(document).ready(function () {
+		/*$("#img1").effect("bounce", { times:10, distance:200 }, 400);*/
+		});	
+				
+		$(function () {
+			$("#RestartGame").bind("click", function () {
+				var url = "game.html?playerNum=" + queryString["num"];				window.location.href = url;
+			});
+			
+			$("#Quit").bind("click", function () {
+					var url = "index.html";
+					window.location.href = url;
+			});
+		});
+		
+		window.history.forward();
+		
+	</script>
+	
+	<script>
+		function scriptFunction() {
+			AniJS.run();
+			
+		}
+	</script>
+
+</html>

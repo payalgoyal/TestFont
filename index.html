@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<title>Snakes and Ladder Game</title>
+		
+		<meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width height=device-height, target-densitydpi=device-dpi" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/easeljs-0.8.0.min.js"></script>
+		<script src="js/tweenjs-0.6.0.min.js"></script>
+		<script type="text/javascript" src="js/CSSPlugin.js"></script>
+		<!--<link href='http://fonts.googleapis.com/css?family=Raleway|Audiowide' rel='stylesheet' type='text/css'> -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+	<script src="js/anijs-min.js"></script> 
+	<link rel="stylesheet" type="text/css" href="animate.css" />
+	
+	
+	</head>
+	<body onload="scriptFunction()">
+	
+	<div id="wrapperIndex">
+	<!-- <div id="topBar" class="bar">
+		Welcome to 21st Century Snake & Ladder
+		</div> -->
+		<div id="parentContainer" >
+			<div id="playerSelector">
+				<span id="selectorHeader"> Select Number of Players </span><br />
+				<input type="button" name="One Player" id="OnePlayer" class="circleButton" alt="Number1" value="1"  data-anijs="if: mouseover, do: jello animated">
+				<input type="button" name="Two Players" id="TwoPlayers" class="circleButton" alt="Number2" value="2"  data-anijs="if:mouseover, do: jello animated">
+				<input type="button" name="Three Players" id="ThreePlayers" class="circleButton" alt="Number3" value="3"  data-anijs="if: mouseover, do: jello animated">
+				<input type="button" name="Four Players" id="FourPlayers" class="circleButton" alt="Number4" value="4"  data-anijs="if: mouseover, do: jello animated">
+				<div id="selectorFooter"> 
+				<img src="images/dice_1.gif">
+				<img src="images/dice_2.gif">
+				<img src="images/dice_3.gif">
+				<img src="images/dice_4.gif"></div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function () {
+            $("#OnePlayer").bind("click", function () {
+                var url = "game.html?playerNum=" + encodeURIComponent($("#OnePlayer").val());
+				window.location.href = url;
+            });
+            $("#TwoPlayers").bind("click", function () {
+                var url = "game.html?playerNum=" + encodeURIComponent($("#TwoPlayers").val());
+				window.location.href = url;
+            });
+            $("#ThreePlayers").bind("click", function () {
+                var url = "game.html?playerNum=" + encodeURIComponent($("#ThreePlayers").val());
+				window.location.href = url;
+            });
+            $("#FourPlayers").bind("click", function () {
+                var url = "game.html?playerNum=" + encodeURIComponent($("#FourPlayers").val());
+				window.location.href = url;
+            });			
+        });
+	</script>
+	
+	<script>
+		function scriptFunction() {
+			AniJS.run();
+		}
+</script>
+	
+	</body>
+</html>
